@@ -1,0 +1,319 @@
+* {
+    font-family: helvetica;
+}
+
+button {
+    cursor: pointer;
+}
+
+body {
+    background-color: rgba(103, 97, 112, 0.7);
+    box-sizing: border-box;
+    margin: 0px;
+}
+
+.big {
+    display: grid;
+    grid-template-rows: 5% 80% 5%;
+    grid-template-columns: auto;
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    background-color: rgb(36, 142, 187);
+    /* position: fixed; */
+    width: 100vw;
+    color: gold;
+}
+
+header h1 {
+    font-size: 4.3em;
+    margin: 0px;
+    margin-bottom: 1%;
+}
+
+.smallTitle {
+    background-color: rgb(36, 142, 187);
+    color: gold;
+    font-size: 1.5em;
+    margin: 0px;
+    padding-bottom: 0.5%;
+    padding-left: 0.5%;
+}
+
+main {
+    disply: flex;
+    /* flex-direction: row; */
+    justify-content: space-between;
+    flex-wrap: wrap;
+    /* justify-content: space-between; */
+}
+
+.form {
+    height: 5vh;
+    grid-area: 1/1/2/2;
+    display: flex;
+    justify-content: space-between;
+    width: 100vw;
+    margin-bottom: 3%;
+    background-color: rgb(89, 103, 108);
+}
+
+.form input {
+    width: 16%;
+    font-size: 1em;
+    border: 2px solid gold;
+}
+
+.form button {
+    background-color: gold;
+    font-size: 1em;
+    font-weight: bold;
+    border: 0px;
+    cursor: pointer;
+    margin-right: 0.5%;
+}
+
+.inputfile {
+    width: 30%;
+}
+
+.more {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(36, 142, 187);
+    color: gold;
+    grid-area: 3/1/4/2;
+    width: 100vw;
+    font-size: 1em;
+}
+
+.more p {
+    cursor: pointer;
+}
+
+.fileUp {
+    display: flex;
+    align-items: center;
+    width: 10%;
+    margin-left: 0.5%;
+}
+
+.inputfile {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+}
+
+.inputfile+label {
+    font-size: 1.25em;
+    font-weight: 700;
+    color: white;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.inputfile:focus+label, .inputfile+label:hover {
+    color: red;
+}
+
+.inputfile:focus+label {
+    outline: 1px dotted #000;
+    outline: -webkit-focus-ring-color auto 5px;
+}
+
+.inputfile+label * {
+    pointer-events: none;
+}
+
+.grid {
+    grid-area: 2/1/3/2;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.headingClassName {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 2%;
+    min-width: 300px;
+    min-height: 300px;
+    width: 20%;
+    height: 350px;
+    /* display: inline-block; */
+    text-align: center;
+    overflow: hidden;
+    background-color: black;
+    border: 0.5vw solid gold;
+    /* border-radius: 40px; */
+}
+
+.headingClassName img {
+    margin: 0;
+    vertical-align: bottom;
+    max-width: 100%;
+    max-height: 100%;
+    border-radius: 40px;
+    background-attachment: fixed;
+    /* border: 2vw solid black; */
+}
+
+.username {
+    margin: 0;
+    font-size: 2em;
+}
+
+.description {
+    margin: 0;
+    font-size: 1.5em;
+}
+
+.title {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(47, 176, 145, 0.86);
+    border: 0px;
+}
+
+.title h3 {
+    margin: 0;
+    font-size: 2.5em;
+}
+
+/* pop-up modle */
+
+.pop {
+    grid-area: 1/1/5/2;
+    position: fixed;
+    margin: 0px;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(33, 19, 40, 0.9);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.popImage {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.exit {
+    width: 100vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.exit p {
+    color: rgb(219, 81, 189);
+    font-size: 1.5em;
+    margin: 0px;
+    margin-left: 2%;
+    margin-right: 2%;
+    cursor: pointer;
+}
+
+.display {
+    width: 80vw;
+    height: 80vh;
+    background-color: rgb(241, 238, 233);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: space-between;
+    border: 1vw solid gold;
+    border-radius: 40px;
+}
+
+.pop img {
+    width: 50vw;
+    height: 50vh;
+    border-radius: 40px;
+}
+
+.imageContainer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    text-align: justify;
+}
+
+.comContiner {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 20vh;
+    overflow: scroll;
+    background-color: rgb(241, 238, 233);
+    border-radius: 0px 0px 30px 30px;
+}
+
+.comments {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    border: 2px solid gold;
+}
+
+.com {
+    width: 60%;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.but {
+    width: 20%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.comp {
+    width: 20%;
+    display: flex;
+    justify-content: flex-start;
+    margin-left: 1.5%;
+}
+
+.comments h6 {
+    margin: 0px;
+    font-size: 1em;
+    margin-left: 1%;
+}
+
+.comments button {
+    margin-right: 1%;
+}
+
+.comments p {
+    margin: 0px;
+    font-size: 1.2em;
+}
+
+.replyInput {
+    width: 100vw;
+    height: 100vh;
+    z-index: 10;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    background-color: rgb(224, 214, 187);
+}

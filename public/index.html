@@ -9,38 +9,38 @@
 <body>
 
 
- <div class="big">
-    <main>
-        <some-component v-if="currentImageId" v-bind:id="currentImageId" v-on:close="currentImageId=null" v-on:left="left" v-on:right="right">
-        </some-component>
-        <header>
-            <h1>welcome to my image board</h1>
-        </header>
-        <p class="smallTitle">upload an image from your PC or just find one online, just make sure it's a good one.</p>
-        <div class="form">
-            <div class="fileUp">
-            <input id="inputfile" class="inputfile" type="file" name="file" v-on:change="setFile" data-multiple-caption="{count} files selected" multiple>
-            <label for="inputfile">Your Own Pic</label>
+    <div class="big">
+        <main>
+            <some-component v-if="currentImageId" v-bind:id="currentImageId" v-on:close="currentImageId=null" v-on:left="left" v-on:right="right">
+            </some-component>
+            <header>
+                <h1>welcome to my image board</h1>
+            </header>
+            <p class="smallTitle">upload an image from your PC or just find one online, just make sure it's a good one.</p>
+            <div class="form">
+                <div class="fileUp">
+                    <input id="inputfile" class="inputfile" type="file" name="file" v-on:change="setFile" data-multiple-caption="{count} files selected" multiple>
+                    <label for="inputfile">Your Own Pic</label>
+                </div>
+                <input class="url" name="url" v-model="fileToUpload.url" placeholder="*Enter URL">
+                <input class="inp1" name="title" v-model="fileToUpload.title" placeholder="*Title">
+                <input class="inp2" name="username" v-model="fileToUpload.username" placeholder="*User Name">
+                <input class="inp3" name="description" v-model="fileToUpload.description" placeholder="Description">
+                <button v-on:click="upload">Submit</button>
             </div>
-            <input class="url" name="url" v-model="fileToUpload.url" placeholder="*Enter URL">
-            <input class="inp1" name="title" v-model="fileToUpload.title" placeholder="*Title">
-            <input class="inp2" name="username" v-model="fileToUpload.username" placeholder="*User Name">
-            <input class="inp3" name="description" v-model="fileToUpload.description" placeholder="Description">
-            <button v-on:click="upload">Submit</button>
-        </div>
-        <div class="grid">
-            <div class="headingClassName" v-for="img in uploadArray" >
-                <a :href="'#'+img.id">
+            <div class="grid">
+                <div class="headingClassName" v-for="img in uploadArray">
+                    <a :href="'#'+img.id">
                 <img :id="img.id" :src="img.url">
                 </a>
-            </div>
+                </div>
 
-        </div>
-        <div class="more">
-            <p v-if="hidebutton" v-on:click="showMore">See More Images</p>
-        </div>
-    </main>
-</div>
+            </div>
+            <div class="more">
+                <p v-if="hidebutton" v-on:click="showMore">See More Images</p>
+            </div>
+        </main>
+    </div>
     <script id="some-template" type="text/x-template">
         <div class="pop" v-on:click="close">
             <div class="exit" v-on:click.stop="">
@@ -49,7 +49,7 @@
             </div>
             <div class="display" v-on:click.stop="">
                 <div class="popImage">
-                    <img v-bind:src="file"/>
+                    <img v-bind:src="file" />
                     <div class="imageContainer">
                         <h2>{{ title }}</h2>
                         <p>{{ description }}</p>
@@ -60,9 +60,9 @@
                 </div>
                 <div class="userInfo">
                     <label for="icomment">Comment:</label>
-                    <input type="text" name="commenttext" v-model="comment.commenttext"/>
+                    <input type="text" name="commenttext" v-model="comment.commenttext" />
                     <label for="iname">User Name:</label>
-                    <input type="text" name="commentuser" v-model="comment.commentuser"/>
+                    <input type="text" name="commentuser" v-model="comment.commentuser" />
                     <button type="button" name="button" v-on:click="savecom">
                         POST
                     </button>
@@ -70,9 +70,12 @@
                 <reply-component v-if="currentCommentId" v-bind:id="currentCommentId" v-on:exit="currentCommentId=null"></reply-component>
                 <div class="comContiner">
                     <div class="comments" v-if="commentArray[0].comment" v-for="item in commentArray">
-                        <div class="com"><h6> {{item.comment}} </h6></div>
+                        <div class="com">
+                            <h6> {{item.comment}} </h6></div>
                         <div class="but"><button v-on:click="currentCommentId=item.comment_id">see conversation</button></div>
-                        <div class="comp"><p> <strong>{{item.comment_username}}</strong> on {{item.comment_date}}</p></div>
+                        <div class="comp">
+                            <p> <strong>{{item.comment_username}}</strong> on {{item.comment_date}}</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -80,15 +83,19 @@
     </script>
     <script id="reply-template" type="text/x-template">
         <div class="replyInput">
-            <button v-on:click="exit">close</button>
-            <input type="text" name="replytext" v-model="reply.replytext" placeholder="Reply"/>
-            <input type="text" name="replyuser" v-model="reply.replyuser" placeholder="User Name"/>
-            <button type="button" name="button" v-on:click="saveReply"></button>
-             <div class="replys" v-for="item in replyArray">
-                 <p>{{item.text}}</p>
-                 <p>{{item.user}}</p>
-                 <p>{{item.date}}</p>
-             </div>
+            <div class="upperHolder">
+                <button v-on:click="exit">close</button>
+                <input type="text" name="replytext" v-model="reply.replytext" placeholder="Reply" />
+                <input type="text" name="replyuser" v-model="reply.replyuser" placeholder="User Name" />
+                <button type="button" name="button" v-on:click="saveReply">Save</button>
+            </div>
+            <div class=replyHolder>
+                <div class="replys" v-for="item in replyArray">
+                    <p>{{item.text}}</p>
+                    <p>{{item.user}}</p>
+                    <p>{{item.date}}</p>
+                </div>
+            </div>
         </div>
     </script>
     <script src="input.js"></script>

@@ -96,7 +96,7 @@ app.post("/upload", uploader.single("file"), upload, function(req, res) {
         let title = req.body.title;
         let description = req.body.description;
         let username = req.body.username;
-        let url = `https://s3.amazonaws.com/spicedling/${req.file.filename}`;
+        let url = `https://s3.amazonaws.com/danielspiced/${req.file.filename}`;
         saveImages(url, username, title, description)
             .then((response) => {
                 res.json({

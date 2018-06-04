@@ -225,6 +225,6 @@ app.get("/more", (req, res) => {
             console.log(`error in GET/more: ${err}`);
         });
 });
-app.listen(8080, () => {
+app.listen(process.env.PORT || 8080, () => {
     console.log("listening on 8080");
 });
